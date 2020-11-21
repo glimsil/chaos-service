@@ -1,0 +1,4 @@
+click
+flask
+pathlib
+setuptools==50.3.2  

@@ -1,0 +1,5 @@
+{
+    "type" : "internal_server_error",
+    "start_at_request" : 10,
+    "chance_of_sucess": 100
+}
