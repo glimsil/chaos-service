@@ -1,4 +1,13 @@
 from setuptools import setup, find_packages
+import os
+
+# install requirements
+folder = os.path.dirname(os.path.realpath(__file__))
+requirements_path = folder + '/requirements.txt'
+install_requires = []
+if os.path.isfile(requirements_path):
+    with open(requirements_path) as f:
+        install_requires = f.read().splitlines()
 
 with open('README.md') as f:
     readme = f.read()
@@ -18,7 +27,7 @@ setup(
     package_dir={'': 'src'},
     packages=find_packages('src'),
     include_package_data=True,
-    install_requires=["click"],
+    install_requires = install_requires,
     entry_points={
         'console_scripts': [ 
         'chaos-service=chaos_service.main:cli' 
