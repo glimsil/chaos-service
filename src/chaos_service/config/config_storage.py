@@ -26,10 +26,20 @@ class ConfigStorage:
         error_code = 0
         if(chaos_type == 'internal_server_error'):
             error_code = 500
+        if(chaos_type == 'bad_gateway'):
+            error_code = 502
+        if(chaos_type == 'service_unavailable'):
+            error_code = 503
+        if(chaos_type == 'gateway_timeout'):
+            error_code = 504
+        if(chaos_type == 'version_not_supported'):
+            error_code = 505
         if(chaos_type == 'bad_request'):
             error_code = 400
         if(chaos_type == 'connection_refused'):
             error_code = -1
+        if(chaos_type == 'chaos'):
+            error_code = 0
         self.DATA = { 
                 "type" :  chaos_type,
                 "start_at_request" : 10 if (start_at_request is None and chance_of_sucess is None and chance_of_sucess_until_hit is None) else start_at_request,
